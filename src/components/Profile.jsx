@@ -60,7 +60,7 @@ const Profile = () => {
     );
     if(upd_res){
         alert('Post Deleted');
-        navigate('/profile');
+        window.location.reload();
     }else{
         alert('Error deleting post!')
     }
