@@ -45,6 +45,10 @@ const Posts = () => {
     <ResponsiveAppBar/>
     <div className="post-container">
       {posts && posts.map((post, index) => {
+        let title = post.title;
+        title = title.substring(0,Math.min(title.length,20));
+        let header = post.header;
+        header = header.substring(0,Math.min(header.length,20));
         return (
           <Card className="post-card" sx={{ minWidth:300, maxWidth: 300,minHeight:400, maxHeight:400}}>
             <CardHeader
@@ -54,7 +58,7 @@ const Posts = () => {
                 </Avatar>
               }
              
-              title={post.title}
+              title={title+"..."}
               subheader={post.time}
             />
             <CardMedia
@@ -64,7 +68,7 @@ const Posts = () => {
               alt={post.title}
             />
             <CardContent>
-                {post.header}
+                {header+"..."}
                 <br/>
                 <Link  className="read-more" to={"/posts/"+ post._id} >Read More.. </Link>
             </CardContent>

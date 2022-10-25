@@ -107,6 +107,10 @@ const OtherProfile = () => {
           <div className="post-container">
             {userPosts &&
               userPosts.map((post, index) => {
+                let title = post.title;
+                title = title.substring(0,Math.min(title.length,20));
+                let header = post.header;
+                header = header.substring(0,Math.min(header.length,20));
                 return (
                   <Card
                     className="post-card"
@@ -123,7 +127,7 @@ const OtherProfile = () => {
                            <img onClick={()=>navigate('/profile/'+post.author_name)} src={post.author_image} alt="" />
                         </Avatar>
                       }
-                      title={post.title}
+                      title={title+"..."}
                       subheader={post.time}
                     />
                     <CardMedia
@@ -133,7 +137,7 @@ const OtherProfile = () => {
                       alt={post.title}
                     />
                     <CardContent>
-                      {post.header}
+                      {header+"..."}
                       <br />
                       <Link className="read-more" to={"/posts/" + post._id}>
                         Read More..{" "}

@@ -123,6 +123,10 @@ const Profile = () => {
           <div className="post-container">
             {userPosts &&
               userPosts.map((post, index) => {
+                let title = post.title;
+                title = title.substring(0,Math.min(title.length,20));
+                let header = post.header;
+                header = header.substring(0,Math.min(header.length,20));
                 return (
                   <Card
                     className="post-card"
@@ -145,7 +149,7 @@ const Profile = () => {
                           />
                         </Avatar>
                       }
-                      title={post.title}
+                      title={title+"..."}
                       subheader={post.time}
                     />
                     <CardMedia
@@ -155,7 +159,7 @@ const Profile = () => {
                       alt={post.title}
                     />
                     <CardContent>
-                      {post.header}
+                      {header+"..."}
                       <br />
                       <Link className="read-more" to={"/posts/" + post._id}>
                         Read More..{" "}
