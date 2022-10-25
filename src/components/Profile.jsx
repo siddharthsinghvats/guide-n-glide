@@ -50,8 +50,22 @@ const Profile = () => {
     getPosts();
   }, []);
   //    console.log(userPosts);
-
   const navigate = useNavigate();
+  const deletePost = async (id) => {
+    let upd_res = await fetch(
+      `https://guide-n-glide.herokuapp.com/profile/${id}`,
+      {
+        method: "delete"
+      }
+    );
+    if(upd_res){
+        alert('Post Deleted');
+        navigate('/profile');
+    }else{
+        alert('Error deleting post!')
+    }
+  };
+
 
   return (
     <>
@@ -154,6 +168,14 @@ const Profile = () => {
                       <IconButton aria-label="share">
                         <ShareIcon />
                       </IconButton>
+                      <button
+                        className="delete"
+                        onClick={() => {
+                          deletePost(post._id);
+                        }}
+                      >
+                        Delete
+                      </button>
                     </CardActions>
                   </Card>
                 );

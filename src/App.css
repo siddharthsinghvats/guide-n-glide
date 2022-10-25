@@ -350,3 +350,18 @@ body{
   border-radius: 50%;
   cursor: pointer;
 }
+
+.delete{
+  background: none;
+  margin-left: auto;
+  padding:5px;
+  font-size: 1.1rem;
+  border:0.5px solid rgb(72, 72, 74);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete:hover{
+  background-color: #78787957;
+  color:rgb(247, 4, 4);
+}
