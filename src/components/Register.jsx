@@ -45,7 +45,7 @@ const Register = ()=>{
             <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}  placeholder='Email' required/>
             <input type="text" value={college} onChange={(e)=>setCollege(e.target.value)}   placeholder='College' required/>
             <input type="text" value={skills} onChange={(e)=>setSkills(e.target.value)}   placeholder='Your skills' required/>
-            <input type="text" value={profile_img} onChange={(e)=>setProfile(e.target.value)}   placeholder='Your profile image URL' required/>
+            <input type="text" value={profile_img} onChange={(e)=>setProfile(e.target.value)}   placeholder='Profile image URL(Leave blank for default)' required/>
             <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)}  placeholder='Username' required/>
             <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}  placeholder='Password' required/>
             <button onClick={handleClick}>Register</button>
