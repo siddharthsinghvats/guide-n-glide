@@ -61,6 +61,7 @@ const Profile = () => {
     if(upd_res){
         alert('Post Deleted');
         
+        window.location.reload();
     }else{
         alert('Error deleting post!')
     }
