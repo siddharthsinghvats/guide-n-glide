@@ -257,13 +257,15 @@ body{
 
 .nav-link{
   text-decoration: none;
-  color:white;
+  color:rgb(114, 7, 164);
   letter-spacing:0.1cm;
   font-weight: bold;
 }
 
 .active{
-  color:rgb(161, 91, 5);
+  color:rgb(91, 3, 116);
+  padding-bottom: 2px;
+  border-bottom: 2px solid black;
 }
 
 .profile{
@@ -320,6 +322,15 @@ body{
     border-radius: 8px;
     
   }
+  .home-form{
+    width:90%;
+    margin:10px;
+  }
+  .profile{
+    margin:auto;
+    padding:10px;
+    font-weight: bold;
+  }
   
 }
 
@@ -364,4 +375,52 @@ body{
 .delete:hover{
   background-color: #78787957;
   color:rgb(247, 4, 4);
+}
+
+
+@media screen and (max-width:480px) {
+  .home-page{
+    width:100%;
+    min-height: 100vh;
+    height:auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(40, 253, 182, 0.61);
+   
+  }
+  .typer-container{
+    width:100% !important;
+    margin:0;
+    
+  }
+  .home-text{
+    font-size: 1.3rem !important;
+  }
+  
+  .typed{
+    font-size: 1.5rem !important;
+  }
+.home-text{
+  padding:0;
+}
+
+  .home-text button{
+    width:70%;
+    padding:10px;
+    background-color: rgba(4, 96, 65, 0.539);
+    font-size: large;
+    color:white;
+    margin:20px 0;
+    border:none;
+    border-radius: 8px;
+    
+  }
+
+  .home-form{
+    width:95%;
+  }
+  
 }
