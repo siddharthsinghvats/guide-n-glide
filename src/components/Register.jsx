@@ -1,6 +1,7 @@
 import logo from './logo.jpg';
 import { useState ,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 const Register = ()=>{
 
     const [name,setName] = useState('');
@@ -10,6 +11,8 @@ const Register = ()=>{
     const  [skills,setSkills] = useState('');
     const  [profile_img,setProfile] = useState('');
     const [password,setPassword] = useState('');
+    const [loading,setLoading] = useState(false);
+
     const navigate  = useNavigate();
     useEffect(()=>{
         if(localStorage.getItem('user')){
@@ -17,7 +20,7 @@ const Register = ()=>{
         }
     });
     const handleClick=async ()=>{
-
+        setLoading(true);
         if(profile_img.length===0){
             setProfile('https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651__340.png');
         }
@@ -35,6 +38,14 @@ const Register = ()=>{
        }else{
         alert(result.message);
        }
+       setLoading(false);
+    }
+    if(loading){
+        return (
+            <div className="loading">
+              <ReactLoading type="spinningBubbles" color="white" />
+            </div>
+          );
     }
    return(
     <div className="home-background">

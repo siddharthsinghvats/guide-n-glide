@@ -4,7 +4,7 @@ import ResponsiveAppBar from "./ResponsiveAppBar";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Post = () => {
-  const [post, setPost] = useState("<h1>Loading...</h1>");
+  const [post, setPost] = useState({title:" loading......"});
   const params = useParams();
   useEffect(() => {
     const getPost = async () => {

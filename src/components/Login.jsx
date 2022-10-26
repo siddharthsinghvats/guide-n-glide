@@ -1,11 +1,12 @@
 import logo from './logo.jpg';
 import { useState ,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import ReactLoading from  'react-loading';
 const Login = ()=>{
 
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
+    const [loading,setLoading] =useState(false);
     const navigate  = useNavigate();
     useEffect(()=>{
         if(localStorage.getItem('user')){
@@ -13,6 +14,7 @@ const Login = ()=>{
         }
     });
     const handleClick=async ()=>{
+        setLoading(true);
        let result = await fetch('https://guide-n-glide.herokuapp.com/signin',{
         method:'post',
         body :JSON.stringify({password,username}),
@@ -27,6 +29,14 @@ const Login = ()=>{
        }else{
         alert(result.message);
        }
+       setLoading(false);
+    }
+    if(loading){
+        return (
+            <div className="loading">
+              <ReactLoading type="spinningBubbles" color="white" />
+            </div>
+          );
     }
    return(
     <div className="home-background">

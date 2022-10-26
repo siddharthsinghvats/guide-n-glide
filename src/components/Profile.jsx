@@ -16,15 +16,19 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import ReactLoading from 'react-loading';
+const heroku = "https://guide-n-glide.herokuapp.com";
+const local = "http://localhost:3000";
 
 const Profile = () => {
   const [user, setUser] = useState({});
   const [userPosts, setUserPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const getProfile = async () => {
       const user = JSON.parse(localStorage.getItem("user"));
       let result = await fetch(
-        `https://guide-n-glide.herokuapp.com/profile/${user.username}`
+        `${heroku}/profile/${user.username}`
       );
       result = await result.json();
       if (result && !result.message) {
@@ -48,8 +52,9 @@ const Profile = () => {
     };
     getProfile();
     getPosts();
-  }, []);
-  //    console.log(userPosts);
+    setLoading(false);
+  }, [loading]);
+     console.log(userPosts);
   const navigate = useNavigate();
   const deletePost = async (id) => {
     let upd_res = await fetch(
@@ -67,7 +72,13 @@ const Profile = () => {
     }
   };
 
-
+if(loading){
+    return (
+        <div className="loading">
+          <ReactLoading type="spinningBubbles" color="blue" />
+        </div>
+      );
+}
   return (
     <>
       <ResponsiveAppBar />

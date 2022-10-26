@@ -3,9 +3,11 @@ import { useState ,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DefaultEditor } from 'react-simple-wysiwyg';
 import ResponsiveAppBar from "./ResponsiveAppBar";
+import ReactLoading from 'react-loading';
 
 const default_image = 'https://cdn.pixabay.com/photo/2015/06/24/15/45/computer-820281__340.jpg';
-
+const heroku = "https://guide-n-glide.herokuapp.com";
+const local = "http://localhost:3000";
 
 const CreatePost = ()=>{
 
@@ -13,16 +15,18 @@ const CreatePost = ()=>{
     const [content,setContent] = useState('');
     const [image,setImage] = useState('');
     const [header,setHeader] = useState('');
+    const [loading,setLoading] = useState(false);
     const navigate  = useNavigate();
 
     const handleClick=async ()=>{
+        setLoading(true);
         const user = JSON.parse(localStorage.getItem('user'));
         const author_name = user.name;
         const author_username = user.username;
         const author_image = user.profile_img;
         const cur_img = image.length?image:default_image;
 
-       let result = await fetch('https://guide-n-glide.herokuapp.com/create',{
+       let result = await fetch(`${heroku}/create`,{
         method:'post',
         body :JSON.stringify({title,header,content,image:cur_img,author_name,author_image,author_username}),
         headers:{
@@ -42,8 +46,14 @@ const CreatePost = ()=>{
             "Content-Type":'application/json'
         }
        })
+       setLoading(false);
        navigate('/posts');
     }
+
+    if(loading){
+        return <div  className='loading' ><ReactLoading type="spinningBubbles" color='white'/></div> 
+    }
+
    return(
     <>
     <ResponsiveAppBar />
