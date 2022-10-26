@@ -463,9 +463,8 @@ body{
 .footer{
   background-color: rgb(45, 45, 45);
   text-align: center;
-  height:40px;
-  padding-top:5px;
-  position: relative;
- bottom:0;
- color:white;
+  padding: 10px 0;
+  bottom: 0;
+  width:100%;
+  color:white;
 }
