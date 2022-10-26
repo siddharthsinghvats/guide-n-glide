@@ -9,7 +9,7 @@ const Register = ()=>{
     const [college,setCollege] = useState('');
     const [username,setUsername] = useState('');
     const  [skills,setSkills] = useState('');
-    const  [profile_img,setProfile] = useState('');
+    const  [profile_img,setProfile] = useState("https://cdn.pixabay.com/photo/2020/02/22/16/29/penguin-4871045__340.png");
     const [password,setPassword] = useState('');
     const [loading,setLoading] = useState(false);
 
@@ -21,9 +21,6 @@ const Register = ()=>{
     });
     const handleClick=async ()=>{
         setLoading(true);
-        if(profile_img.length==0){
-            setProfile('https://cdn.pixabay.com/photo/2020/02/22/16/29/penguin-4871045__340.png');
-        }
        let result = await fetch('https://guide-n-glide.herokuapp.com/register',{
         method:'post',
         body :JSON.stringify({name, email,password,profile_img,username,college,skills}),
