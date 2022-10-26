@@ -122,7 +122,7 @@ if(loading){
             <CardContent>
               <h4> 🎓 {user.college}</h4>
               <br />
-              <h4>✉️ {user.email}</h4>
+              <h4 > <a style={{textDecoration:"none",color:"inherit"}} href={`mailto:${user.email}`}>✉️ {user.email}</a> </h4>
               <br />
               <h4>💻 {user.skills}</h4>
             </CardContent>

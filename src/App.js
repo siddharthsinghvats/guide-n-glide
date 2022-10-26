@@ -10,6 +10,7 @@ import CreatePost from './components/CreatePost';
 import Post from './components/Post';
 import Profile from './components/Profile';
 import OtherProfile from './components/OtherProfile';
+import Footer from './components/Footer';
 function App() {
   return (
     <>
@@ -26,6 +27,7 @@ function App() {
       <Route path='/signin' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
     </Routes>
+    <Footer/>
     </BrowserRouter>
     </>
   );

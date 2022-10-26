@@ -106,7 +106,6 @@ body{
 }
 
 .home-page{
-  width:100%;
   min-height:100vh;
   display: flex;
   align-items: center;
@@ -310,7 +309,6 @@ body{
     height:30%;
   }
   .home-page{
-    width:100vw;
     padding:20px;
     height:auto;
     display: flex;
@@ -394,7 +392,6 @@ body{
 
 @media screen and (max-width:480px) {
   .home-page{
-    width:100%;
     min-height: 100vh;
     height:auto;
     display: flex;
@@ -461,4 +458,14 @@ body{
 
 .like{
   color:rgb(66, 135, 240);
+}
+
+.footer{
+  background-color: rgb(45, 45, 45);
+  text-align: center;
+  height:40px;
+  padding-top:5px;
+  position: relative;
+ bottom:0;
+ color:white;
 }
