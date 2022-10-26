@@ -21,8 +21,8 @@ const Register = ()=>{
     });
     const handleClick=async ()=>{
         setLoading(true);
-        if(profile_img.length===0){
-            setProfile('https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651__340.png');
+        if(profile_img.length==0){
+            setProfile('https://cdn.pixabay.com/photo/2020/02/22/16/29/penguin-4871045__340.png');
         }
        let result = await fetch('https://guide-n-glide.herokuapp.com/register',{
         method:'post',
@@ -56,7 +56,7 @@ const Register = ()=>{
             <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}  placeholder='Email' required/>
             <input type="text" value={college} onChange={(e)=>setCollege(e.target.value)}   placeholder='College' required/>
             <input type="text" value={skills} onChange={(e)=>setSkills(e.target.value)}   placeholder='Your skills' required/>
-            <input type="text" value={profile_img} onChange={(e)=>setProfile(e.target.value)}   placeholder='Profile image URL(Leave blank for default)' required/>
+            <input type="text" value={profile_img} onChange={(e)=>setProfile(e.target.value)}   placeholder='Profile image URL(Leave blank for default)'/>
             <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)}  placeholder='Username' required/>
             <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}  placeholder='Password' required/>
             <button onClick={handleClick}>Register</button>
