@@ -143,33 +143,18 @@ if(loading){
                   <Card
                     className="post-card"
                     sx={{
-                      minWidth: 300,
-                      maxWidth: 300,
-                      minHeight: 400,
-                      maxHeight: 400,
+                      minWidth: 200,
+                      maxWidth: 200,
+                      minHeight: 190,
+                      maxHeight: 190,
                     }}
                   >
                     <CardHeader
-                      avatar={
-                        <Avatar className="avt">
-                          <img
-                            onClick={() =>
-                              navigate("/profile/" + post.author_username)
-                            }
-                            src={post.author_image}
-                            alt=""
-                          />
-                        </Avatar>
-                      }
+                    className="profile-post"
                       title={title+"..."}
-                      subheader={post.time}
+                      // subheader={post.time}
                     />
-                    <CardMedia
-                      component="img"
-                      height="194"
-                      image={post.image}
-                      alt={post.title}
-                    />
+                   
                     <CardContent>
                       {header+"..."}
                       <br />
@@ -178,9 +163,6 @@ if(loading){
                       </Link>
                     </CardContent>
                     <CardActions disableSpacing>
-                      <IconButton aria-label="add to favorites">
-                        <FavoriteIcon />
-                      </IconButton>
                       <IconButton aria-label="share">
                         <ShareIcon />
                       </IconButton>

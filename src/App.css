@@ -469,3 +469,7 @@ body{
   width:100%;
   color:white;
 }
+
+.profile-post{
+  padding:10px !important;
+}
