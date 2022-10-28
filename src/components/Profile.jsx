@@ -145,8 +145,8 @@ if(loading){
                     sx={{
                       minWidth: 200,
                       maxWidth: 200,
-                      minHeight: 190,
-                      maxHeight: 190,
+                      minHeight: 200,
+                      maxHeight: 200,
                     }}
                   >
                     <CardHeader
