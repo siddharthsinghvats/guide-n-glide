@@ -15,7 +15,7 @@ const Login = ()=>{
     });
     const handleClick=async ()=>{
         setLoading(true);
-       let result = await fetch('https://guide-n-glide.herokuapp.com/signin',{
+       let result = await fetch('https://guidnguide-api.onrender.com/signin',{
         method:'post',
         body :JSON.stringify({password,username}),
         headers:{

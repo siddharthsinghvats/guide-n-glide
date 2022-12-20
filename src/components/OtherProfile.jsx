@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import ResponsiveAppBar from "./ResponsiveAppBar";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import homeimg from "./homeimg.png";
+import { Link, useParams } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -10,12 +9,8 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 
 const OtherProfile = () => {
   const [user, setUser] = useState({});
@@ -24,7 +19,7 @@ const OtherProfile = () => {
   useEffect(() => {
     const getProfile = async () => {
       let result = await fetch(
-        `https://guide-n-glide.herokuapp.com/profile/${params.username}`
+        `https://guidnguide-api.onrender.com/profile/${params.username}`
       );
       result = await result.json();
       if (result && !result.message) {
@@ -35,7 +30,7 @@ const OtherProfile = () => {
     };
     const getPosts = async () => {
       let result = await fetch(
-        `https://guide-n-glide.herokuapp.com/user_posts/${params.username}`
+        `https://guidnguide-api.onrender.com/user_posts/${params.username}`
       );
       result = await result.json();
       if (result && !result.message) {
@@ -46,9 +41,8 @@ const OtherProfile = () => {
     };
     getProfile();
     getPosts();
-  }, []);
-  //    console.log(userPosts);
-  const navigate = useNavigate();
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps
+ 
   return (
     <>
       <ResponsiveAppBar />

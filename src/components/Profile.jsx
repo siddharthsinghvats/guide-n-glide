@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import ResponsiveAppBar from "./ResponsiveAppBar";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import homeimg from "./homeimg.png";
+import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -10,15 +9,9 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ReactLoading from 'react-loading';
-const heroku = "https://guide-n-glide.herokuapp.com";
-const local = "http://localhost:3000";
+
 
 const Profile = () => {
   const [user, setUser] = useState({});
@@ -28,7 +21,7 @@ const Profile = () => {
     const getProfile = async () => {
       const user = JSON.parse(localStorage.getItem("user"));
       let result = await fetch(
-        `${heroku}/profile/${user.username}`
+        `https://guidnguide-api.onrender.com/profile/${user.username}`
       );
       result = await result.json();
       if (result && !result.message) {
@@ -55,7 +48,6 @@ const Profile = () => {
     setLoading(false);
   }, [loading]);
      console.log(userPosts);
-  const navigate = useNavigate();
   const deletePost = async (id) => {
     let upd_res = await fetch(
       `https://guide-n-glide.herokuapp.com/profile/${id}`,
@@ -134,7 +126,7 @@ if(loading){
           <h3 className="post-h3">Posts ({userPosts.length}): </h3>
           <div className="post-container">
             {userPosts &&
-              userPosts.map((post, index) => {
+              userPosts.map((post) => {
                 let title = post.title;
                 title = title.substring(0,Math.min(title.length,20));
                 let header = post.header;

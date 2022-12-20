@@ -1,19 +1,19 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import ResponsiveAppBar from "./ResponsiveAppBar";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Post = () => {
   const [post, setPost] = useState({title:" loading......"});
   const params = useParams();
   useEffect(() => {
     const getPost = async () => {
-      let result = await fetch(`https://guide-n-glide.herokuapp.com/posts/${params.id}`);
+      let result = await fetch(`https://guidnguide-api.onrender.com/posts/${params.id}`);
       result = await result.json();
       setPost(result[0]);
     };
     getPost();
-  }, []);
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
   console.log(typeof(post.content));
   return (

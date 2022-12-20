@@ -1,5 +1,5 @@
 import logo from './logo.jpg';
-import { useState ,useEffect} from 'react';
+import { useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DefaultEditor } from 'react-simple-wysiwyg';
 import ResponsiveAppBar from "./ResponsiveAppBar";
@@ -7,7 +7,6 @@ import ReactLoading from 'react-loading';
 
 const default_image = 'https://cdn.pixabay.com/photo/2015/06/24/15/45/computer-820281__340.jpg';
 const heroku = "https://guide-n-glide.herokuapp.com";
-const local = "http://localhost:3000";
 
 const CreatePost = ()=>{
 
@@ -38,14 +37,6 @@ const CreatePost = ()=>{
         alert(result.message);
         return;
        }
-       const username = user.username;
-       let upd_res = await fetch(`https://guide-n-glide.herokuapp.com/${result._id}`,{
-        method:'put',
-        body :JSON.stringify({username}),
-        headers:{
-            "Content-Type":'application/json'
-        }
-       })
        setLoading(false);
        navigate('/posts');
     }

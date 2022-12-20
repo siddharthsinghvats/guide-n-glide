@@ -21,7 +21,7 @@ const Register = ()=>{
     });
     const handleClick=async ()=>{
         setLoading(true);
-       let result = await fetch('https://guide-n-glide.herokuapp.com/register',{
+       let result = await fetch('https://guidnguide-api.onrender.com/register',{
         method:'post',
         body :JSON.stringify({name, email,password,profile_img,username,college,skills}),
         headers:{
