@@ -6,7 +6,6 @@ import ResponsiveAppBar from "./ResponsiveAppBar";
 import ReactLoading from 'react-loading';
 
 const default_image = 'https://cdn.pixabay.com/photo/2015/06/24/15/45/computer-820281__340.jpg';
-const heroku = "https://guide-n-glide.herokuapp.com";
 
 const CreatePost = ()=>{
 
@@ -25,7 +24,7 @@ const CreatePost = ()=>{
         const author_image = user.profile_img;
         const cur_img = image.length?image:default_image;
 
-       let result = await fetch(`${heroku}/create`,{
+       let result = await fetch(`https://guidnguide-api.onrender.com/create`,{
         method:'post',
         body :JSON.stringify({title,header,content,image:cur_img,author_name,author_image,author_username}),
         headers:{
