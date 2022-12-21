@@ -34,7 +34,7 @@ const Profile = () => {
     const getPosts = async () => {
       const cur_user = JSON.parse(localStorage.getItem("user"));
       let result = await fetch(
-        `https://guide-n-glide.herokuapp.com/user_posts/${cur_user.username}`
+        `https://guidnguide-api.onrender.com/user_posts/${cur_user.username}`
       );
       result = await result.json();
       if (result && !result.message) {
@@ -50,7 +50,7 @@ const Profile = () => {
      console.log(userPosts);
   const deletePost = async (id) => {
     let upd_res = await fetch(
-      `https://guide-n-glide.herokuapp.com/profile/${id}`,
+      `https://guidnguide-api.onrender.com/profile/${id}`,
       {
         method: "delete"
       }
